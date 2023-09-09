@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "个人博客"
   text: "A VitePress Site"
-  tagline: My great project tagline
+  tagline: "Do then better"
   actions:
     - theme: brand
       text: Markdown Examples
