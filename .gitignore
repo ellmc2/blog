@@ -129,7 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-pnpm-lock.yaml
-
 docs/.vitepress/dist
 docs/.vitepress/cache
