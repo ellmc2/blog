@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { favicon } from "./facicon";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -7,10 +8,15 @@ export default defineConfig({
   titleTemplate: "学习记录",
   description: "A VitePress Site",
   base: "/blog/",
-  head: [["link", { rel: "icon", href: "/favicon.jpeg" }]],
+  head: [["link", { rel: "icon", href: favicon }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: "/favicon.jpeg",
+    logo: {
+      src: favicon,
+      style: {
+        // borderRadius: "50%"
+      }
+    },
     nav: [
       { text: "主页", link: "/" },
       // { text: "Examples", link: "/markdown-examples" },
