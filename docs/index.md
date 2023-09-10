@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "个人博客"
-  text: "A VitePress Site"
+  name: "千里之行，始于足下"
+  text: ""
   tagline: "Do then better"
   actions:
     - theme: brand
