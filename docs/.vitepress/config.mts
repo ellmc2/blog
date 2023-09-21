@@ -15,7 +15,7 @@ export default defineConfig({
       src: favicon,
       style: {
         // borderRadius: "50%"
-      }
+      },
     },
     nav: [
       { text: "主页", link: "/" },
@@ -50,6 +50,7 @@ export default defineConfig({
                 footer: {
                   selectText: "选择",
                   navigateText: "切换",
+                  closeText: "关闭"
                 },
               },
             },
