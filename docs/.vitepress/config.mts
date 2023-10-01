@@ -1,3 +1,11 @@
+/*
+ * @Author: ellmc2 jellmc2@qq.com
+ * @Date: 2023-09-28 20:22:50
+ * @LastEditors: ellmc2 jellmc2@qq.com
+ * @LastEditTime: 2023-10-01 21:43:47
+ * @FilePath: /blog/docs/.vitepress/config.mts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { defineConfig } from "vitepress";
 import { favicon } from "./facicon";
 
@@ -19,15 +27,16 @@ export default defineConfig({
     },
     nav: [
       { text: "主页", link: "/" },
-      // { text: "Examples", link: "/markdown-examples" },
+      // { text: "前端基础", link: "/fe-foundation" },
+      { text: "前端基础", link: "/event-loop" },
     ],
 
     sidebar: [
       {
-        text: "Examples",
+        text: "前端基础",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "Event loop事件循环", link: "/event-loop" },
+          // { text: "Runtime API Examples", link: "/api-examples" },
         ],
       },
     ],
@@ -50,7 +59,7 @@ export default defineConfig({
                 footer: {
                   selectText: "选择",
                   navigateText: "切换",
-                  closeText: "退出"
+                  closeText: "退出",
                 },
               },
             },
