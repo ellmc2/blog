@@ -78,7 +78,7 @@
 
 浏览器的解决办法：排队。
 
-![事件循环01](/event-loop-01.png)
+![事件循环01](/event-loop/event-loop-01.png)
 
 1. 在最开始的时候，渲染主线程会进入一个无限循环；
 2. 每次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后会进入下一次循环；如果没有，则进入休眠；
@@ -142,6 +142,8 @@ https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-check
 3. 微任务队列：用于存放需要最快执行的任务，优先级最高。
 
 添加任务到微任务队列的主要方式是使用 `Promise`、`MutationObserver`、`Object.observe`(已废弃，请使用 `Proxy` 对象替代)，Node 创建微任务 `procress.nextTick`。
+
+![事件循环01](/event-loop/event-loop-02.png)
 
 例如：
 
