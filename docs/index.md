@@ -8,18 +8,17 @@ hero:
   tagline: "Do then better"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 随便看看
+      link: /fe-foundation/event-loop
+    # - theme: alt
+    #   text: API Examples
+    #   link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: A Blog
+    details: 前端博客，记录日常所得。
+  - title: For Me
+    details: 保持进步。
+  - title: For Future
+    details: 记录个人博客，见证成长之路。
 ---
-

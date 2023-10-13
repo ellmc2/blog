@@ -1,12 +1,4 @@
-/*
- * @Author: ellmc2 jellmc2@qq.com
- * @Date: 2023-09-28 20:22:50
- * @LastEditors: ellmc2 jellmc2@qq.com
- * @LastEditTime: 2023-10-01 21:43:47
- * @FilePath: /blog/docs/.vitepress/config.mts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-import { defineConfig } from "vitepress";
+import { defineConfig, type DefaultTheme } from "vitepress";
 import { favicon } from "./facicon";
 
 // https://vitepress.dev/reference/site-config
@@ -16,30 +8,41 @@ export default defineConfig({
   titleTemplate: "学习记录",
   description: "A VitePress Site",
   base: "/blog/",
-  head: [["link", { rel: "icon", href: favicon }]],
+  head: [
+    ["link", { rel: "icon", href: favicon }],
+    [
+      "meta",
+      {
+        name: "keywords",
+        content: "FE, blog",
+      },
+    ],
+  ],
+
+  lastUpdated: true,
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+
     logo: {
       src: favicon,
       style: {
         // borderRadius: "50%"
       },
     },
-    nav: [
-      { text: "主页", link: "/" },
-      // { text: "前端基础", link: "/fe-foundation" },
-      { text: "前端基础", link: "/event-loop" },
-    ],
+    nav: nav(),
 
-    sidebar: [
-      {
-        text: "前端基础",
-        items: [
-          { text: "Event loop事件循环", link: "/event-loop" },
-          // { text: "Runtime API Examples", link: "/api-examples" },
-        ],
+    footer: {
+      message: "根据 MIT 许可证发布",
+      copyright: "Copyright © 2023-present Ell Xu",
+    },
+
+    sidebar: {
+      "/fe-foundation/": {
+        base: "/fe-foundation/",
+        items: sidebarFeFoundation(),
       },
-    ],
+    },
 
     socialLinks: [{ icon: "github", link: "https://github.com/ellmc2" }],
 
@@ -68,6 +71,7 @@ export default defineConfig({
       },
     },
 
+    lastUpdatedText: "更新于",
     lastUpdated: {
       text: "Updated at",
       formatOptions: {
@@ -77,7 +81,6 @@ export default defineConfig({
     },
   },
   markdown: {
-    // theme: "material-theme-palenight",
     lineNumbers: true,
 
     // adjust how header anchors are generated,
@@ -89,3 +92,29 @@ export default defineConfig({
     },
   },
 });
+
+function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "JavaScript",
+      collapsed: false,
+      items: [{ text: "Eventloop 事件循环", link: "event-loop" }],
+    },
+    // {
+    //   text: "CSS",
+    //   collapsed: false,
+    //   items: [{ text: "Markdown Extensions", link: "markdown" }],
+    // },
+  ];
+}
+
+function nav(): DefaultTheme.NavItem[] {
+  return [
+    { text: "主页", link: "/" },
+    {
+      text: "前端基础",
+      link: "/fe-foundation/event-loop",
+      activeMatch: "/fe-foundation/",
+    },
+  ];
+}
