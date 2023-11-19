@@ -8,7 +8,7 @@ VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shi
 
 **Input**
 
-````js{4}
+```js{4}
 export default {
   data () {
     return {
@@ -16,7 +16,7 @@ export default {
     }
   }
 }
-````
+```
 
 **Output**
 
