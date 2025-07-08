@@ -100,11 +100,11 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [{ text: "Eventloop 事件循环", link: "event-loop" }],
     },
-    // {
-    //   text: "CSS",
-    //   collapsed: false,
-    //   items: [{ text: "Markdown Extensions", link: "markdown" }],
-    // },
+    {
+      text: "手撕代码",
+      collapsed: false,
+      items: [{ text: "Deep Clone", link: "/live-coding/deep-clone" }],
+    },
   ];
 }
 
