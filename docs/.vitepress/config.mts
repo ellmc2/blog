@@ -7,7 +7,7 @@ export default defineConfig({
   title: "个人博客",
   titleTemplate: "学习记录",
   description: "A VitePress Site",
-  base: "/blog/",
+  base: "/",
   head: [
     ["link", { rel: "icon", href: favicon }],
     [
