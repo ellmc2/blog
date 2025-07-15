@@ -103,7 +103,10 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
     {
       text: "手撕代码",
       collapsed: false,
-      items: [{ text: "Deep Clone", link: "/live-coding/deep-clone" }],
+      items: [
+        { text: "Deep Clone", link: "/live-coding/deep-clone" },
+        { text: "useDebouncedValue", link: "/live-coding/useDebouncedValue" },
+      ],
     },
   ];
 }
