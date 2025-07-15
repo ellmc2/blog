@@ -106,6 +106,7 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
       items: [
         { text: "Deep Clone", link: "/live-coding/deep-clone" },
         { text: "useDebouncedValue", link: "/live-coding/useDebouncedValue" },
+        { text: "flattenObject", link: "/live-coding/flattenObject" },
       ],
     },
   ];
