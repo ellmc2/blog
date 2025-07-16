@@ -98,7 +98,10 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
     {
       text: "JavaScript",
       collapsed: false,
-      items: [{ text: "Eventloop 事件循环", link: "event-loop" }],
+      items: [
+        { text: "Eventloop 事件循环", link: "event-loop" },
+        { text: "HTTP 缓存", link: "http-cache" },
+      ],
     },
     {
       text: "手撕代码",
