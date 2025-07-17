@@ -73,7 +73,6 @@ export default defineConfig({
 
     lastUpdatedText: "更新于",
     lastUpdated: {
-      text: "Updated at",
       formatOptions: {
         dateStyle: "full",
         timeStyle: "medium",
