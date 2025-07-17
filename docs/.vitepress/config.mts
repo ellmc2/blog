@@ -71,6 +71,11 @@ export default defineConfig({
       },
     },
 
+    docFooter: {
+      prev: "上一篇",
+      next: "下一篇",
+    },
+
     lastUpdatedText: "更新于",
     lastUpdated: {
       formatOptions: {
@@ -111,12 +116,15 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
         { text: "useDebouncedValue", link: "/live-coding/useDebouncedValue" },
         { text: "flattenObject", link: "/live-coding/flattenObject" },
       ],
-    }, 
+    },
     {
       text: "场景题",
       collapsed: false,
       items: [
-        { text: "请求失败会弹出一个toast，如何保证批量请求失败，只弹出一个toast", link: "/situational-question/show-toast" },
+        {
+          text: "请求失败会弹出一个toast，如何保证批量请求失败，只弹出一个toast",
+          link: "/situational-question/show-toast",
+        },
       ],
     },
   ];
