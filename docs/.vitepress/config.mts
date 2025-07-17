@@ -1,4 +1,5 @@
 import { defineConfig, type DefaultTheme } from "vitepress";
+import { VitePWA } from 'vite-plugin-pwa'
 import { favicon } from "./facicon";
 
 // https://vitepress.dev/reference/site-config
@@ -95,6 +96,25 @@ export default defineConfig({
       },
     },
   },
+  vite: {
+    plugins: [
+      VitePWA({
+        registerType: 'autoUpdate',
+        manifest: {
+          name: '个人博客',
+          short_name: '博客',
+          start_url: '/',
+          icons: [
+            {
+              src: '/logo.jpeg',
+              sizes: '192x192',
+              type: 'image/jpeg'
+            }
+          ]
+        }
+      })
+    ]
+  }
 });
 
 function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
