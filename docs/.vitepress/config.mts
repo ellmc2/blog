@@ -34,7 +34,7 @@ export default defineConfig({
 
     footer: {
       message: "根据 MIT 许可证发布",
-      copyright: "Copyright © 2023-present Ell Xu",
+      copyright: `Copyright © 2023-${new Date().getFullYear()} ellmc2`,
     },
 
     sidebar: {
