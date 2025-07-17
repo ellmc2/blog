@@ -101,6 +101,7 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
       items: [
         { text: "Eventloop 事件循环", link: "event-loop" },
         { text: "HTTP 缓存", link: "http-cache" },
+        { text: "首屏性能优化", link: "first-screen-performance-optimization" },
       ],
     },
     {
