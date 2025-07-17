@@ -42,3 +42,107 @@ Gzip
 2. 后端工作：修改Nginx配置（gzip_static设置为on）。建议前端学一下Nginx的常用配置：CORS跨域、代理跨域、HTTPS、缓存等；
 3. 前端配合：使用`compression-webpack-plugin` 在构建时预生成`.gz` 压缩文件，减少服务器实时压缩的开销；
 4. 进阶场景：对于需要极致优化的场景，可以选择Brotli来替代Gzip，Brotli可以压缩的更小，但是浏览器兼容性稍差。
+
+## 开发环境优化思路有哪些，怎么定位到构建过程中耗时的任务？
+
+1. 升级到webpack5或者迁移到vite，但是需要考虑到升级难度和时间成本；
+2. 配置webpack缓存：缓存不变的文件，提高二次构建速度。
+    1. 启用 Webpack 持久化缓存（内置支持）
+        
+        从 **Webpack 5** 开始，推荐使用内置的文件缓存（`cache: 'filesystem'`）。
+        
+        ```jsx
+        // webpack.config.js
+        module.exports = {
+          // ...
+          cache: {
+            type: 'filesystem', // 启用文件缓存
+            buildDependencies: {
+              config: [__filename], // 如果配置文件变了，重新缓存
+            },
+          },
+        };
+        
+        ```
+        
+        Webpack 会在 `node_modules/.cache/webpack/` 中自动生成缓存内容。
+        
+    2. 启用 loader 缓存（如 babel-loader）
+        
+        ```jsx
+        {
+          test: /\.js$/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true, // 启用 babel 缓存
+            },
+          },
+        }
+        ```
+        
+        这会把缓存存在 `node_modules/.cache/babel-loader/` 目录下，加速二次构建。
+        
+    3. 使用 `cache-loader`（Webpack 4 时代用法，Webpack 5 不再推荐）
+        
+        ```bash
+        npm install cache-loader --save-dev
+        ```
+        
+        ```jsx
+        {
+          test: /\.js$/,
+          use: [
+            'cache-loader',
+            'babel-loader',
+          ],
+          include: path.resolve('src'),
+        }
+        ```
+        
+        Webpack 5 已不推荐使用 `cache-loader`，建议直接使用 `cache: { type: 'filesystem' }`。
+        
+    4. 使用 `hard-source-webpack-plugin`（已废弃）
+3. 多线程并行打包：使用`thread-loader`
+    
+    ```bash
+    npm install --save-dev thread-loader
+    ```
+    
+    ```jsx
+    // webpack.config.js
+    module.exports = {
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            include: path.resolve('src'),
+            use: [
+              {
+                loader: 'thread-loader',
+                options: {
+                  workers: 2, // 启动两个 worker（默认是 CPU 核数 - 1）
+                },
+              },
+              {
+                loader: 'babel-loader',
+                options: {
+                  cacheDirectory: true,
+                },
+              },
+            ],
+          },
+        ],
+      },
+    };
+    ```
+    
+    `thread-loader` 要放在 **耗时 loader 的前面**，比如 `babel-loader`、`ts-loader`、`vue-loader`。不要给 `style-loader`、`css-loader` 等轻量 loader 加线程，反而变慢。
+    
+4. 预编译第三方库：对于稳定第三方库进行预编译，减少每次构建的处理时间，可以使用DllPlugin或者vue-cli项目配置transpileDependencies。
+
+怎么定位问题？
+
+1. 使用`speed-measure-webpack-plugin` 插件来分析loader/plugin花费的时间；
+2. 控制变量：隔离特定功能模块，观察构建速度变化；
+3. 打包时使`--profile —-json` 生成status.json分析文件，包含详细的构建性能分析数据。
