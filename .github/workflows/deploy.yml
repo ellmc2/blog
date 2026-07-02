@@ -46,6 +46,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install # npm ci or pnpm install / yarn install / bun install
       - name: Build with VitePress
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
         run: |
           pnpm docs:build
           touch docs/.vitepress/dist/.nojekyll

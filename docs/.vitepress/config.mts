@@ -2,13 +2,15 @@ import { defineConfig, type DefaultTheme } from "vitepress";
 import { VitePWA } from 'vite-plugin-pwa'
 import { favicon } from "./facicon";
 
+const base = process.env.BASE_PATH || "/";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-hans",
   title: "个人博客",
   titleTemplate: "学习记录",
   description: "A VitePress Site",
-  base: "/",
+  base,
   head: [
     ["link", { rel: "icon", href: favicon }],
     [
@@ -103,15 +105,15 @@ export default defineConfig({
         manifest: {
           name: '个人博客',
           short_name: '博客',
-          start_url: '/',
+          start_url: base,
           icons: [
             {
-              src: '/logo.jpeg',
+              src: `${base}logo.jpeg`,
               sizes: '192x192',
               type: 'image/jpeg',
             },
             {
-              src: '/logo.jpeg',
+              src: `${base}logo.jpeg`,
               sizes: '512x512',
               type: 'image/jpeg',
             },
