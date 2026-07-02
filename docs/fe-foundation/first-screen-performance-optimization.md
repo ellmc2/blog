@@ -10,7 +10,7 @@
 
 量化指标：
 
-1. FCP，首次内容绘制时间，之用户首次“看到东西”的时间，一般要求小于1.8s；
+1. FCP，首次内容绘制时间，指用户首次“看到东西”的时间，一般要求小于1.8s；
 2. LCP，最大内容绘制时间，如主图、主标题、用户感知主体页面已加载，一般要求2.5s；
 3. TTI，页面首次可交互的时间（按钮、输入等响应），一般要求小于5s；
 
@@ -51,7 +51,7 @@ Gzip
         
         从 **Webpack 5** 开始，推荐使用内置的文件缓存（`cache: 'filesystem'`）。
         
-        ```jsx
+        ```js
         // webpack.config.js
         module.exports = {
           // ...
@@ -69,7 +69,7 @@ Gzip
         
     2. 启用 loader 缓存（如 babel-loader）
         
-        ```jsx
+        ```js
         {
           test: /\.js$/,
           use: {
@@ -89,7 +89,7 @@ Gzip
         npm install cache-loader --save-dev
         ```
         
-        ```jsx
+        ```js
         {
           test: /\.js$/,
           use: [
@@ -109,7 +109,7 @@ Gzip
     npm install --save-dev thread-loader
     ```
     
-    ```jsx
+    ```js
     // webpack.config.js
     module.exports = {
       module: {
@@ -145,4 +145,4 @@ Gzip
 
 1. 使用`speed-measure-webpack-plugin` 插件来分析loader/plugin花费的时间；
 2. 控制变量：隔离特定功能模块，观察构建速度变化；
-3. 打包时使`--profile —-json` 生成status.json分析文件，包含详细的构建性能分析数据。
+3. 打包时使用`--profile --json` 生成 status.json 分析文件，包含详细的构建性能分析数据。

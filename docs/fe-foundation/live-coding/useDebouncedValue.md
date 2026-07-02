@@ -1,15 +1,15 @@
-# useDebounceValue
+# useDebouncedValue
 
 ```ts
 import { useState, useEffect } from "react";
 
 /**
- * useDebounceValue
+ * useDebouncedValue
  * @param value - 需要防抖的值
  * @param delay - 延迟时间（毫秒），默认 300ms
  * @returns 返回延迟后的值
  */
-function useDebounceValue<T>(value: T, delay: number): T {
+function useDebouncedValue<T>(value: T, delay: number): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
@@ -23,6 +23,6 @@ function useDebounceValue<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-export default useDebounceValue;
+export default useDebouncedValue;
 
 ```

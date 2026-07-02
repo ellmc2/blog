@@ -108,9 +108,14 @@ export default defineConfig({
             {
               src: '/logo.jpeg',
               sizes: '192x192',
-              type: 'image/jpeg'
-            }
-          ]
+              type: 'image/jpeg',
+            },
+            {
+              src: '/logo.jpeg',
+              sizes: '512x512',
+              type: 'image/jpeg',
+            },
+          ],
         }
       })
     ]
@@ -132,9 +137,9 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
       text: "手撕代码",
       collapsed: false,
       items: [
-        { text: "Deep Clone", link: "/live-coding/deep-clone" },
-        { text: "useDebouncedValue", link: "/live-coding/useDebouncedValue" },
-        { text: "flattenObject", link: "/live-coding/flattenObject" },
+        { text: "Deep Clone", link: "live-coding/deep-clone" },
+        { text: "useDebouncedValue", link: "live-coding/useDebouncedValue" },
+        { text: "flattenObject", link: "live-coding/flattenObject" },
       ],
     },
     {
@@ -143,7 +148,7 @@ function sidebarFeFoundation(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: "请求失败会弹出一个toast，如何保证批量请求失败，只弹出一个toast",
-          link: "/situational-question/show-toast",
+          link: "situational-question/show-toast",
         },
       ],
     },

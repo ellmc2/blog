@@ -14,10 +14,10 @@
          // 所有请求成功的处理逻辑
        })
        .catch((errors) => {
-         if (!isShowToast) {
+         if (!isShownToast) {
            // 检查标识位
            notify(errors[0]); // 弹出toast
-           isShowToast = true; // 设置标识位为true
+           isShownToast = true; // 设置标识位为true
          }
        });
    }
